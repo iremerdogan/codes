@@ -41,3 +41,45 @@ hava_durumu = HavaDurumu()
 hava_durumu.sehir_ekle()
 hava_durumu.sicaklik_guncelle()
 hava_durumu.tavsiye_ver()
+
+------------
+
+
+class Urun:
+  def __init__(self, ad, fiyat, miktar):
+    self.ad = ad
+    self.fiyat = fiyat
+    self.miktar = miktar
+
+class Sepet:
+  def __init__(self):
+    self.urunler = []
+
+  def urun_ekleme(self, urun):
+    self.urunler.append(urun)
+
+  def urun_cikarma(self):
+    for urun, miktar, fiyat in self.urunler:
+      if urun.ad == self.urunler:
+        self.urunler.remove(urun)
+        print(f"{urun_adi} sepetten çıkarıldı.")
+      return
+    print(f"{urun_adi} sepetinizde bulunamadı!")
+
+  def toplam_tutar_hesaplama(self):
+    toplam = 0
+    for urun in self.urunler:
+      toplam += urun.miktar * urun.fiyat
+    return toplam
+
+urunler = [Urun("ayakkabı", 1800, 2),  # ad, fiyat, miktar
+    Urun("ceket", 800, 4),
+    Urun("pantolon", 650, 3)]
+
+sepet = Sepet()
+for urun in urunler:
+  sepet.urun_ekleme(urun)
+
+# Calculate and print the total price
+toplam_tutar = sepet.toplam_tutar_hesaplama()
+print(f"Ödenecek tutar: {toplam_tutar} TL")
